@@ -32,6 +32,7 @@
   user-select: none;
   transition: transform 0.3s ease;
   touch-action: none;
+  margin-bottom: 3rem;
 }
 
 .cartao-conteudo {
