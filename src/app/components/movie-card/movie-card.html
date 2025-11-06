@@ -1,0 +1,34 @@
+<div class="container-cards">
+
+  @for (filme of deckDeFilmes(); track filme.id; let i = $index) {
+
+  <div class="cartao-filme" (panmove)="onPanMove($event)" (panend)="onPanEnd($event)"
+    [style.transform]="getTransform(i)" [class.card-topo]="i === deckDeFilmes().length - 1"
+    [style.zIndex]="getZIndex(i)">
+
+    <img class="cartao-imagem" [src]="'https://image.tmdb.org/t/p/w500' + filme.poster_path" [alt]="filme.title">
+
+    <div class="cartao-conteudo">
+      <h3 class="cartao-titulo">{{ filme.title }}</h3>
+      <span class="cartao-nota">⭐ {{ filme.vote_average.toFixed(1) }}</span>
+    </div>
+
+  </div>
+
+  } @empty {
+  <p>Carregando filmes...</p>
+  }
+
+  <div class="container-botoes">
+    <button type="button" class="botao-swipe botao-nope" (click)="dispararSwipe(false)"
+      [class.piscar-vermelho]="feedbackAtivo() === 'nope'">
+      <span>❌</span>
+    </button>
+
+    <button type="button" class="botao-swipe botao-like" (click)="dispararSwipe(true)"
+      [class.piscar-verde]="feedbackAtivo() === 'like'">
+      <span>❤️</span>
+    </button>
+  </div>
+
+</div>
