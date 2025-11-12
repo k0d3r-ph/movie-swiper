@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "echo 'export const environment = { chave: \"'$API_KEY'\" };' > src/app/api-config.ts && ng build",
+    "build": "echo 'export const chaveAPI = { chave: \"'$API_KEY'\" };' > src/app/api-config.ts && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:movie-swiper": "node dist/movie-swiper/server/server.mjs"
